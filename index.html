@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KickOff - Premier Football Court Registration & Booking Website. Book top-rated 5v5, 7v7, indoor futsal, and 11v11 football pitches online with instant slot confirmation.">
+  <meta name="keywords" content="football court booking, turf booking, soccer pitch reservation, futsal court, kickoff football arena">
+  <title>KickOff | Premier Football Court Registration & Booking</title>
+
+  <!-- Google Fonts: Outfit (Athletic Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons for clean UI accents -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOP NOTICE BAR ================= -->
+  <div class="top-announcement-bar" id="announcementBar">
+    <div class="container announcement-content">
+      <span class="badge-pill pulse"><i class="fa-solid fa-bolt"></i> MINI-PROJECT DEMO</span>
+      <p>Instant slot availability & offline localStorage persistence enabled. No real payments required!</p>
+      <button class="announcement-close" id="closeAnnouncement" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </div>
+
+  <!-- ================= NAVIGATION BAR ================= -->
+  <header class="navbar-wrapper" id="navbar">
+    <div class="container navbar-container">
+      <a href="#home" class="brand-logo" id="brandLogo">
+        <span class="logo-icon-box">
+          <i class="fa-solid fa-futbol"></i>
+        </span>
+        <span class="logo-text">Kick<span class="text-accent">Off</span></span>
+        <span class="brand-tag">ARENA</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active" id="navHome">Home</a></li>
+          <li class="nav-item"><a href="#courts" class="nav-link" id="navCourts">Courts</a></li>
+          <li class="nav-item"><a href="#booking" class="nav-link" id="navBooking">Book Court</a></li>
+          <li class="nav-item">
+            <a href="#my-bookings" class="nav-link" id="navMyBookings">
+              My Bookings
+              <span class="nav-counter" id="navBookingCount">0</span>
+            </a>
+          </li>
+          <li class="nav-item"><a href="#facilities" class="nav-link" id="navFacilities">Facilities</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" id="navContact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action CTA -->
+      <div class="header-actions">
+        <a href="#booking" class="btn btn-accent btn-sm" id="headerBookBtn">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Book Slot</span>
+        </a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-badge fade-in">
+          <span class="sparkle-icon"><i class="fa-solid fa-star"></i></span>
+          <span>Premier Football Court Booking Platform</span>
+        </div>
+
+        <h1 class="hero-title fade-in">
+          Book Your <span class="highlight-green">Football Court</span> Today!
+        </h1>
+
+        <p class="hero-subtitle fade-in">
+          Experience FIFA-grade astroturf, tournament floodlights, and zero-hassle online court booking. Select your turf, pick an available time slot, and bring your squad onto the pitch!
+        </p>
+
+        <div class="hero-buttons fade-in">
+          <a href="#booking" class="btn btn-accent btn-lg" id="heroBookNowBtn">
+            <i class="fa-solid fa-futbol"></i> Book Now
+          </a>
+          <a href="#courts" class="btn btn-glass btn-lg" id="heroExploreCourtsBtn">
+            <i class="fa-solid fa-list-check"></i> Explore Courts
+          </a>
+          <a href="#my-bookings" class="btn btn-dark-outline btn-lg" id="heroMyBookingsBtn">
+            <i class="fa-solid fa-receipt"></i> View My Bookings
+          </a>
+        </div>
+
+        <!-- Hero Stats Row -->
+        <div class="hero-stats-grid fade-in">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">4</span>
+              <span class="stat-label">Pro Turf Pitches</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">1000 Lux</span>
+              <span class="stat-label">Day/Night Floodlights</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">1,250+</span>
+              <span class="stat-label">Matches Hosted</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">4.9 / 5</span>
+              <span class="stat-label">Player Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COURT DETAILS SECTION ================= -->
+    <section class="section courts-section" id="courts">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-trophy"></i> World-Class Pitches</span>
+          <h2 class="section-title">Available Football Courts</h2>
+          <p class="section-desc">
+            Choose from our premium 5-a-side, 7-a-side, indoor futsal, and full regulation stadium turfs. Every court features professional shock-pad underlays and crystal-clear boundary lines.
+          </p>
+
+          <!-- Court Category Filter Tabs -->
+          <div class="court-filter-tabs" id="courtFilterTabs">
+            <button class="filter-tab-btn active" data-filter="all">All Courts</button>
+            <button class="filter-tab-btn" data-filter="5v5">5-a-Side</button>
+            <button class="filter-tab-btn" data-filter="7v7">7-a-Side</button>
+            <button class="filter-tab-btn" data-filter="indoor">Indoor Futsal</button>
+            <button class="filter-tab-btn" data-filter="11v11">11-a-Side</button>
+          </div>
+        </div>
+
+        <!-- Court Cards Dynamic Grid -->
+        <div class="courts-grid" id="courtsGrid">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REGISTRATION & BOOKING FORM SECTION ================= -->
+    <section class="section booking-section" id="booking">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Online Reservation</span>
+          <h2 class="section-title">Court Registration & Booking Form</h2>
+          <p class="section-desc">
+            Reserve your court in under 2 minutes. Enter your registration details, pick your court, date, duration, and preferred time slot.
+          </p>
+        </div>
+
+        <!-- College Mini-Project Architecture Notice -->
+        <div class="demo-banner-box">
+          <div class="demo-icon"><i class="fa-solid fa-circle-info"></i></div>
+          <div class="demo-text">
+            <strong>College Mini-Project Demo Mode:</strong> Bookings submitted here are validated, calculated, and saved to your browser's <code>localStorage</code>. The architecture is cleanly prepared to attach a Node.js / Express / MongoDB backend API.
+          </div>
+          <button class="btn btn-sm btn-ghost" id="quickFillDemoBtn" title="Auto-fill form with sample player details">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Auto Fill Sample
+          </button>
+        </div>
+
+        <!-- Two Column Booking Layout -->
+        <div class="booking-layout-grid">
+          <!-- Left: Registration & Booking Form -->
+          <div class="booking-form-card">
+            <div class="form-card-header">
+              <h3><i class="fa-solid fa-user-pen"></i> Player & Slot Registration</h3>
+              <span class="step-indicator">Step 1 of 2</span>
+            </div>
+
+            <form id="courtBookingForm" class="booking-form" novalidate>
+              <!-- Personal Details Section -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-id-card"></i> 1. Contact & Team Details
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Full Name <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Cristiano Sharma" required autocomplete="name">
+                  </div>
+                  <span class="error-msg" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="10-digit mobile number" maxlength="10" required autocomplete="tel">
+                  </div>
+                  <span class="error-msg" id="phoneError"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="emailAddress">Email Address <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="emailAddress" name="emailAddress" placeholder="e.g. striker@example.com" required autocomplete="email">
+                  </div>
+                  <span class="error-msg" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="numberOfPlayers">Number of Players <span class="required">*</span></label>
+                  <div class="input-icon-wrap number-stepper-wrap">
+                    <i class="fa-solid fa-users"></i>
+                    <input type="number" id="numberOfPlayers" name="numberOfPlayers" min="2" max="30" value="10" required>
+                    <div class="stepper-btns">
+                      <button type="button" class="step-btn" id="decreasePlayers" aria-label="Decrease players">-</button>
+                      <button type="button" class="step-btn" id="increasePlayers" aria-label="Increase players">+</button>
+                    </div>
+                  </div>
+                  <span class="helper-text">Squad size (2 - 30 players)</span>
+                  <span class="error-msg" id="playersError"></span>
+                </div>
+              </div>
+
+              <!-- Court & Schedule Details -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-stopwatch"></i> 2. Court, Date & Duration
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="courtSelect">Select Football Court <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-futbol"></i>
+                    <select id="courtSelect" name="courtSelect" required>
+                      <option value="">-- Choose a court --</option>
+                      <!-- Options populated dynamically -->
+                    </select>
+                  </div>
+                  <span class="error-msg" id="courtError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="bookingDate">Select Booking Date <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    <input type="date" id="bookingDate" name="bookingDate" required>
+                  </div>
+                  <span class="helper-text">Past dates are disabled</span>
+                  <span class="error-msg" id="dateError"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bookingDuration">Select Duration <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i class="fa-solid fa-clock"></i>
+                    <select id="bookingDuration" name="bookingDuration" required>
+                      <option value="1">1 Hour (Standard)</option>
+                      <option value="1.5">1.5 Hours (Match + Extra Time)</option>
+                      <option value="2" selected>2 Hours (Recommended for Tournaments)</option>
+                      <option value="3">3 Hours (Extended Session)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Selected Court Rate</label>
+                  <div class="court-rate-pill" id="selectedCourtRateDisplay">
+                    <span class="pill-label">Rate / Hour:</span>
+                    <strong class="pill-value" id="currentRateValue">Select Court</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Available Time Slots Picker -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-clock-rotate-left"></i> 3. Select Available Time Slot <span class="required">*</span>
+              </div>
+
+              <div class="slot-filter-legend">
+                <div class="legend-item"><span class="legend-box available"></span> Available</div>
+                <div class="legend-item"><span class="legend-box selected"></span> Selected</div>
+                <div class="legend-item"><span class="legend-box booked"></span> Booked / Unavailable</div>
+              </div>
+
+              <div class="time-slots-wrapper">
+                <div class="slot-period-group">
+                  <span class="slot-period-title"><i class="fa-regular fa-sun"></i> Morning Sessions (06:00 AM - 12:00 PM)</span>
+                  <div class="slots-grid" id="morningSlotsGrid">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <div class="slot-period-group">
+                  <span class="slot-period-title"><i class="fa-solid fa-cloud-sun"></i> Afternoon Sessions (12:00 PM - 05:00 PM)</span>
+                  <div class="slots-grid" id="afternoonSlotsGrid">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <div class="slot-period-group">
+                  <span class="slot-period-title"><i class="fa-solid fa-moon"></i> Prime Night Floodlight (05:00 PM - 11:00 PM)</span>
+                  <div class="slots-grid" id="eveningSlotsGrid">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" id="selectedTimeSlot" name="selectedTimeSlot" required>
+              <span class="error-msg text-center" id="slotError"></span>
+
+              <!-- Extra Amenities / Equipment Checkboxes -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-kit-medical"></i> 4. Complimentary Extras & Add-ons
+              </div>
+
+              <div class="addons-grid">
+                <label class="addon-card">
+                  <input type="checkbox" id="addonBibs" checked>
+                  <div class="addon-info">
+                    <span class="addon-title"><i class="fa-solid fa-shirt"></i> Training Bibs (Set of 14)</span>
+                    <span class="addon-badge free">FREE</span>
+                  </div>
+                </label>
+                <label class="addon-card">
+                  <input type="checkbox" id="addonBall" checked>
+                  <div class="addon-info">
+                    <span class="addon-title"><i class="fa-solid fa-futbol"></i> Match Ball (Size 5)</span>
+                    <span class="addon-badge free">FREE</span>
+                  </div>
+                </label>
+                <label class="addon-card">
+                  <input type="checkbox" id="addonReferee" data-price="300">
+                  <div class="addon-info">
+                    <span class="addon-title"><i class="fa-solid fa-bullhorn"></i> Official Match Referee</span>
+                    <span class="addon-badge price">+₹300</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-submit-container">
+                <button type="submit" class="btn btn-accent btn-xl btn-block" id="submitBookingBtn">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Confirm & Save Booking</span>
+                  <span class="submit-price-pill" id="btnSubmitPrice">₹0</span>
+                </button>
+                <p class="submit-disclaimer">
+                  <i class="fa-solid fa-lock"></i> No payment required. Booking confirmation is generated instantly.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: Live Dynamic Booking Summary (Sticky) -->
+          <div class="booking-summary-sidebar">
+            <div class="summary-card sticky-card" id="bookingSummaryCard">
+              <div class="summary-header">
+                <h3><i class="fa-solid fa-receipt"></i> Booking Summary</h3>
+                <span class="live-calc-badge"><i class="fa-solid fa-circle-dot"></i> LIVE ESTIMATE</span>
+              </div>
+
+              <!-- Court preview badge -->
+              <div class="summary-court-preview" id="summaryCourtPreview">
+                <img src="assets/images/turf-5aside.jpg" alt="Court Preview" id="summaryCourtImg">
+                <div class="preview-text">
+                  <h4 id="summaryCourtName">Select a Football Court</h4>
+                  <span class="preview-type" id="summaryCourtType">5v5 / 7v7 / Indoor</span>
+                </div>
+              </div>
+
+              <!-- Summary line items -->
+              <div class="summary-details-list">
+                <div class="summary-item">
+                  <span class="label"><i class="fa-regular fa-calendar"></i> Date:</span>
+                  <span class="value" id="summaryDate">Not selected</span>
+                </div>
+
+                <div class="summary-item">
+                  <span class="label"><i class="fa-regular fa-clock"></i> Time Slot:</span>
+                  <span class="value highlight-val" id="summarySlot">Not selected</span>
+                </div>
+
+                <div class="summary-item">
+                  <span class="label"><i class="fa-solid fa-hourglass-half"></i> Duration:</span>
+                  <span class="value" id="summaryDuration">2 Hours</span>
+                </div>
+
+                <div class="summary-item">
+                  <span class="label"><i class="fa-solid fa-users"></i> Squad Size:</span>
+                  <span class="value" id="summaryPlayers">10 Players</span>
+                </div>
+
+                <div class="summary-item">
+                  <span class="label"><i class="fa-solid fa-user-tag"></i> Player Name:</span>
+                  <span class="value" id="summaryCustomerName">Guest Player</span>
+                </div>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <!-- Cost breakdown -->
+              <div class="pricing-breakdown">
+                <div class="pricing-row">
+                  <span class="p-label">Base Rate:</span>
+                  <span class="p-value" id="summaryBaseRate">₹0 / hr</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="p-label">Duration Multiplier:</span>
+                  <span class="p-value" id="summaryDurationMult">x 2 hrs</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="p-label">Pitch Subtotal:</span>
+                  <span class="p-value" id="summaryPitchSubtotal">₹0</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="p-label">Add-ons (Referee/Etc):</span>
+                  <span class="p-value" id="summaryAddons">₹0</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="p-label">Booking Service Fee:</span>
+                  <span class="p-value text-accent">FREE (Demo)</span>
+                </div>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <!-- Grand Total -->
+              <div class="summary-total-box">
+                <div class="total-label-wrap">
+                  <span class="total-title">Total Amount</span>
+                  <span class="total-note">All taxes included</span>
+                </div>
+                <div class="total-amount-display" id="summaryGrandTotal">
+                  ₹0
+                </div>
+              </div>
+
+              <!-- Perks list -->
+              <ul class="summary-perks">
+                <li><i class="fa-solid fa-check text-accent"></i> Free cancellation anytime before kick-off</li>
+                <li><i class="fa-solid fa-check text-accent"></i> Instant digital pass & match ticket</li>
+                <li><i class="fa-solid fa-check text-accent"></i> High-definition floodlights included</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MY BOOKINGS SECTION ================= -->
+    <section class="section my-bookings-section" id="my-bookings">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <span class="section-tag"><i class="fa-solid fa-ticket"></i> Customer Portal</span>
+            <h2 class="section-title">My Bookings & Match Passes</h2>
+            <p class="section-desc">
+              Manage your court reservations. You can view booking summaries, download digital match passes, or cancel bookings.
+            </p>
+          </div>
+
+          <div class="bookings-actions-bar">
+            <!-- Filter Tabs -->
+            <div class="booking-filter-group" id="bookingFilterTabs">
+              <button class="b-filter-btn active" data-status="all">All (<span id="countAll">0</span>)</button>
+              <button class="b-filter-btn" data-status="Confirmed">Active (<span id="countActive">0</span>)</button>
+              <button class="b-filter-btn" data-status="Cancelled">Cancelled (<span id="countCancelled">0</span>)</button>
+            </div>
+            <button class="btn btn-sm btn-dark-outline" id="clearAllBookingsBtn" title="Reset local storage bookings">
+              <i class="fa-solid fa-trash-can"></i> Reset Demo Data
+            </button>
+          </div>
+        </div>
+
+        <!-- Bookings Container -->
+        <div class="bookings-list-container" id="bookingsListContainer">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FACILITIES & WHY KICKOFF SECTION ================= -->
+    <section class="section facilities-section" id="facilities">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-award"></i> The KickOff Standard</span>
+          <h2 class="section-title">Why Play At KickOff Arena?</h2>
+          <p class="section-desc">
+            Designed by footballers, for footballers. Every pitch is crafted to professional standards for safety, speed, and unforgettable games.
+          </p>
+        </div>
+
+        <div class="facilities-grid">
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>FIFA Certified 50mm Turf</h3>
+            <p>Non-abrasive, high-density monofilament fibers with anti-injury organic infill for natural ball bounce and sprint traction.</p>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Stadium Grade Floodlights</h3>
+            <p>Shadowless 1000 Lux LED lighting ensures crystal-clear vision for evening and late-night fixtures under the stars.</p>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fa-solid fa-shower"></i></div>
+            <h3>Luxury Lockers & Showers</h3>
+            <p>Spacious, hygienic changing rooms equipped with pressurized hot showers, secure lockers, and grooming mirrors.</p>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fa-solid fa-video"></i></div>
+            <h3>HD Goal Replay Cameras</h3>
+            <p>Record your greatest goals and team highlights in 1080p 60fps with our automated pitch replay cameras.</p>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fa-solid fa-square-parking"></i></div>
+            <h3>Free Safe Parking</h3>
+            <p>Dedicated on-premise parking for over 100+ two-wheelers and four-wheelers with round-the-clock CCTV surveillance.</p>
+          </div>
+
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fa-solid fa-glass-water"></i></div>
+            <h3>Sports Lounge & Hydration</h3>
+            <p>Recharge at our pitchside cafe with chilled electrolyte drinks, healthy protein snacks, and live match screenings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT & LOCATION SECTION ================= -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-headset"></i> Get In Touch</span>
+          <h2 class="section-title">Contact & Arena Location</h2>
+          <p class="section-desc">
+            Have questions about tournament hosting, corporate bookings, or coaching camps? Reach out anytime!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Cards -->
+          <div class="contact-info-wrap">
+            <div class="contact-info-card">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-details">
+                <h4>Arena Location</h4>
+                <p>KickOff Sports Complex, Gate 4, Stadium Boulevard, Metro Sports City - 560001</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="info-details">
+                <h4>Operating Hours</h4>
+                <p>Monday - Sunday: 06:00 AM to 12:00 Midnight (365 Days Open)</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="info-details">
+                <h4>Customer Support</h4>
+                <p>+91 (080) 4567-8900 / +91 98765-43210</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="info-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <div class="info-details">
+                <h4>Email Inquiries</h4>
+                <p>bookings@kickoff-arena.com</p>
+              </div>
+            </div>
+
+            <div class="quick-socials-box">
+              <span>Follow Our Arena:</span>
+              <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Message Form -->
+          <div class="contact-form-card">
+            <h3>Send Us a Message</h3>
+            <p>Our arena coordinator will reply within 30 minutes.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" placeholder="e.g. Lionel Roy" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Your Email</label>
+                <input type="email" id="contactEmail" placeholder="e.g. lionel@gmail.com" required>
+              </div>
+              <div class="form-group">
+                <label for="contactSubject">Subject</label>
+                <input type="text" id="contactSubject" placeholder="e.g. Tournament / Corporate Booking" required>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" rows="4" placeholder="How can we help your team?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-accent btn-block" id="sendContactMsgBtn">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="#home" class="brand-logo">
+          <span class="logo-icon-box"><i class="fa-solid fa-futbol"></i></span>
+          <span class="logo-text">Kick<span class="text-accent">Off</span></span>
+        </a>
+        <p>Premier Football Court Registration and Booking System. Built with modern web standards, sports-first UI, and offline localStorage demo architecture.</p>
+        <span class="project-tag"><i class="fa-solid fa-graduation-cap"></i> College Mini-Project Edition</span>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courts">Court Details</a></li>
+          <li><a href="#booking">Book a Court</a></li>
+          <li><a href="#my-bookings">My Bookings</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Court Types</h4>
+        <ul>
+          <li><a href="#courts">5-a-Side AstroTurf</a></li>
+          <li><a href="#courts">7-a-Side Pro Pitch</a></li>
+          <li><a href="#courts">Indoor Air-Conditioned Futsal</a></li>
+          <li><a href="#courts">11-a-Side Regulation Turf</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Technology Stack</h4>
+        <ul class="tech-stack-list">
+          <li><i class="fa-brands fa-html5 text-accent"></i> HTML5 Semantic Markup</li>
+          <li><i class="fa-brands fa-css3-alt text-accent"></i> Vanilla CSS Design System</li>
+          <li><i class="fa-brands fa-js text-accent"></i> ES6 JavaScript & LocalStorage</li>
+          <li><i class="fa-brands fa-node text-accent"></i> Node/Express/Mongo Ready</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 KickOff Arena. All rights reserved. Designed for College Mini-Project.</p>
+        <div class="footer-meta">
+          <span><i class="fa-solid fa-circle-check text-accent"></i> Pure Vanilla JS (No Tailwind)</span>
+          <a href="#home" class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+            <i class="fa-solid fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= BOOKING CONFIRMATION MODAL ================= -->
+  <div class="modal-overlay" id="confirmationModal" aria-hidden="true">
+    <div class="modal-dialog modal-ticket">
+      <button class="modal-close-btn" id="closeConfirmationModal" aria-label="Close modal">&times;</button>
+      
+      <div class="ticket-wrapper" id="ticketPrintArea">
+        <div class="ticket-header">
+          <div class="ticket-brand">
+            <i class="fa-solid fa-futbol text-accent"></i>
+            <span>Kick<strong class="text-accent">Off</strong> MATCH PASS</span>
+          </div>
+          <div class="ticket-badge confirmed">CONFIRMED</div>
+        </div>
+
+        <div class="ticket-body">
+          <div class="ticket-court-title">
+            <h3 id="ticketCourtName">KickOff Astro Arena</h3>
+            <span class="ticket-court-sub" id="ticketCourtType">5-a-Side Synthetic Pitch</span>
+          </div>
+
+          <div class="ticket-grid">
+            <div class="t-cell">
+              <span class="t-label">BOOKING ID</span>
+              <strong class="t-val highlight-green" id="ticketBookingId">KO-2026-0001</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">MATCH DATE</span>
+              <strong class="t-val" id="ticketDate">24 Oct 2026</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">TIME SLOT</span>
+              <strong class="t-val highlight-green" id="ticketSlot">07:00 PM - 09:00 PM</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">DURATION</span>
+              <strong class="t-val" id="ticketDuration">2 Hours</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">RESERVED FOR</span>
+              <strong class="t-val" id="ticketPlayerName">Cristiano Sharma</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">SQUAD SIZE</span>
+              <strong class="t-val" id="ticketPlayersCount">10 Players</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">CONTACT PHONE</span>
+              <strong class="t-val" id="ticketPhone">9876543210</strong>
+            </div>
+            <div class="t-cell">
+              <span class="t-label">TOTAL PAID (DEMO)</span>
+              <strong class="t-val highlight-green" id="ticketTotalAmount">₹2,400</strong>
+            </div>
+          </div>
+
+          <div class="ticket-stub-bar">
+            <div class="ticket-qr-mock">
+              <div class="qr-box">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
+              <div class="qr-text">
+                <span>Scan at Gate Turnstile</span>
+                <small>Entry allowed 15 mins before kick-off</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer-actions">
+        <button class="btn btn-accent" id="printTicketBtn">
+          <i class="fa-solid fa-print"></i> Print / Save Pass
+        </button>
+        <button class="btn btn-dark-outline" id="viewBookingsFromModalBtn">
+          <i class="fa-solid fa-list-check"></i> View My Bookings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CANCELLATION CONFIRMATION MODAL ================= -->
+  <div class="modal-overlay" id="cancelModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-cancel-header text-center">
+        <div class="warning-icon-box">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <h3>Cancel Booking?</h3>
+        <p>Are you sure you want to cancel booking <strong id="cancelTargetId">KO-0000</strong>? This will release the slot back to the public schedule.</p>
+      </div>
+      <div class="modal-actions-dual">
+        <button class="btn btn-glass" id="dismissCancelBtn">Keep Booking</button>
+        <button class="btn btn-danger" id="confirmCancelBtn">
+          <i class="fa-solid fa-ban"></i> Yes, Cancel Slot
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
